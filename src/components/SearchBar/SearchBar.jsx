@@ -2,7 +2,7 @@ import css from "./SearchBar.module.css";
 import { FaSearch } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import { useState } from "react";
-export default function SearchBar({ onSubmit = () => {} }) {
+export default function SearchBar({ onSubmit }) {
   const [notification, setNotification] = useState(false);
 
   const handleSubmit = (e) => {
@@ -13,7 +13,7 @@ export default function SearchBar({ onSubmit = () => {} }) {
       setNotification(true);
     } else {
       setNotification(false);
-      onSubmit(e);
+      onSubmit(form.elements.word.value);
     }
 
     form.reset();
