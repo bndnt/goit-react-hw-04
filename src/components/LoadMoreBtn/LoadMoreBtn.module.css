@@ -1,0 +1,14 @@
+.moreBtn {
+  font-size: 16px;
+  margin: 10px 0;
+  width: 100%;
+  background-color: white;
+  padding: 15px 0;
+  font-weight: 500;
+  color: #767676;
+  border: 1px solid #d1d1d1;
+}
+.moreBtn:hover {
+  color: black;
+  border: 1px solid black;
+}
