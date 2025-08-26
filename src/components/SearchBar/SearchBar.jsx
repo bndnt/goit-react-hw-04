@@ -38,7 +38,7 @@ export default function SearchBar({ onSubmit }) {
         />
         <button onClick={notify} className={css.btn} type="submit">
           <span>
-            <FaSearch />
+            <FaSearch className={css.searchIcon} />
           </span>
           <span className={css.searchSpanText}>Search</span>
         </button>

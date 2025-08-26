@@ -13,7 +13,7 @@ const instance = axios.create({
 });
 export const requestPostsByName = async (queryName, page) => {
   const { data } = await instance.get(
-    `?query=${queryName}&per_page=12&page=${page}`
+    `?query=${queryName}&per_page=24&page=${page}`
   );
   return data;
 };

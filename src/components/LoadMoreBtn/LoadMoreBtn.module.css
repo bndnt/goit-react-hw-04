@@ -1,5 +1,5 @@
 .moreBtn {
-  font-size: 16px;
+  font-size: 18px;
   margin: 10px 0;
   width: 100%;
   background-color: white;
@@ -9,6 +9,14 @@
   border: 1px solid #d1d1d1;
 }
 .moreBtn:hover {
-  color: black;
-  border: 1px solid black;
+  color: #3746a6;
+  border: 1px solid #3746a6;
+}
+@media (max-width: 375px) {
+  .moreBtn {
+    font-size: 14px;
+    margin: 7px 0;
+    width: 100%;
+    padding: 10px 0;
+  }
 }

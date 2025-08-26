@@ -2,14 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 15px;
   background-color: #3746a6;
 }
 .form {
   background-color: white;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   border-radius: 10px;
+  padding: 0 0 0 15px;
 }
 .btn {
   display: flex;
@@ -24,7 +26,38 @@
   padding: 10px;
   background-color: transparent;
   border: none;
+  width: 400px;
+  font-size: 18px;
+}
+
+.input:focus-within::placeholder {
+  color: transparent;
+}
+.form:focus-within .searchIcon {
+  fill: #3746a6;
 }
 .searchSpanText {
-  font-size: 14px;
+  display: none;
+}
+.searchIcon {
+  font-size: 18px;
+  fill: #757575;
+}
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+    margin: 0 15px;
+    justify-content: space-between;
+  }
+  .searchSpanText {
+    display: none;
+  }
+  .input {
+    font-size: 16px;
+  }
+}
+@media (max-width: 375px) {
+  .input {
+    font-size: 14px;
+  }
 }

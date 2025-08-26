@@ -7,6 +7,8 @@ import { requestPostsByName } from "../../api";
 import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ImageModal from "../ImageModal/ImageModal";
+
 import css from "./App.module.css";
 function App() {
   const [posts, setPosts] = useState(null);
@@ -15,6 +17,11 @@ function App() {
   const [searchValue, setSearchValue] = useState(null);
   const [page, setPage] = useState(1);
   const [totalPage, setTotslPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPicture, setCurrentPicture] = useState({
+    url: "",
+    alt: "",
+  });
   // useEffect(() => {
   //   const fetchAllPosts = async () => {
   //     try {
@@ -61,11 +68,31 @@ function App() {
   const onLoadMore = () => {
     setPage(page + 1);
   };
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else document.body.style = "scroll";
+  }, [isModalOpen]);
   return (
     <div>
       <SearchBar onSubmit={onSearch} />
       <div className={css.container}>
-        {error ? <ErrorMessage /> : <ImageGallery posts={posts} />}
+        {error ? (
+          <ErrorMessage />
+        ) : (
+          <ImageGallery
+            posts={posts}
+            openModal={openModal}
+            setCurrentPicture={setCurrentPicture}
+          />
+        )}
         {Array.isArray(posts) && posts.length === 0 && (
           <p style={{ color: "red", margin: "auto", width: "500px" }}>
             За вашим запитом не знайдено фотографій, спробуйте ще раз
@@ -76,6 +103,13 @@ function App() {
           <LoadMoreBtn onLoadMore={onLoadMore} />
         )}
       </div>
+      {isModalOpen && (
+        <ImageModal
+          modalIsOpen={isModalOpen}
+          closeModal={closeModal}
+          currentPicture={currentPicture}
+        />
+      )}
     </div>
   );
 }
