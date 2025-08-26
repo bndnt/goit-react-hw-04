@@ -27,9 +27,16 @@
     height: calc(100vw / 4 - 45px / 4);
   }
 }
-@media (max-width: 375px) {
+
+@media (max-width: 600px) {
   .galleryItem {
     width: calc(100vw / 3 - 45px / 3);
     height: calc(100vw / 3 - 45px / 3);
+  }
+}
+@media (max-width: 375px) {
+  .galleryItem {
+    width: calc(100vw / 2 - 45px / 2);
+    height: calc(100vw / 2 - 45px / 2);
   }
 }
