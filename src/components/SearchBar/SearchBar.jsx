@@ -32,7 +32,6 @@ export default function SearchBar({ onSubmit }) {
           name="word"
           type="text"
           autoComplete="off"
-          autoFocus
           placeholder="Search images and photos"
           className={css.input}
         />
